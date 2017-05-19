@@ -1,0 +1,3 @@
+[submodule "MathMLCan"]
+	path = MathMLCan
+	url = https://github.com/yuichiro-s/MathMLCan
