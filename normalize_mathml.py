@@ -51,11 +51,17 @@ class Normalizer(object):
 
             validate(t)
         else:
-            t.string = normalize_characters(t.string.strip())
+            new_str = normalize_characters(t.string.strip())
 
             # remove function application
-            if t.string == '\u2061':
-                t.string = ''
+            if new_str == '\u2061':
+                new_str = ''
+            
+            # remove if resulting string is empty
+            if len(new_str) == 0:
+                t.extract()
+            else:
+                t.replace_with(new_str)
 
 
 def normalize_characters(s):
